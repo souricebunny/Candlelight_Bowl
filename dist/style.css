@@ -1,0 +1,81 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; background: #11100f; color: #f1e7d5; }
+body { margin: 0; }
+main {
+  min-height: 100svh;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: clamp(.6rem, 2svh, 1.5rem);
+  padding: max(1.25rem, env(safe-area-inset-top)) 1rem max(1.25rem, env(safe-area-inset-bottom));
+}
+
+#intro p {
+  margin: 0 0 .55rem;
+  color: #c8a472;
+  font: 600 .62rem/1.4 system-ui, sans-serif;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+}
+h1 {
+  margin: 0;
+  font: 400 clamp(2.15rem, 5vw, 4.5rem)/1 Georgia, serif;
+  letter-spacing: -.045em;
+}
+#scene {
+  width: min(calc(100vw - 2rem), max(16rem, calc(100svh - 7rem)), 120rem);
+  aspect-ratio: 1;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+    linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+  mask-composite: intersect;
+}
+#scene img, #scene canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+#scene canvas { touch-action: manipulation; }
+#scene canvas[data-liquid] { touch-action: none; }
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .85rem;
+  align-items: center;
+}
+button {
+  min-height: 44px;
+  padding: .6rem 1rem;
+  border: 1px solid #bd94665c;
+  border-radius: 2rem;
+  background: #231e19;
+  color: inherit;
+  font: 500 .76rem/1.2 system-ui, sans-serif;
+  cursor: pointer;
+}
+button:not(:disabled):hover { filter: brightness(1.2); }
+button:focus-visible { outline: 2px solid #f4c891; outline-offset: 4px; }
+button:disabled { visibility: hidden; }
+
+.water-hint { margin: 0; color: #c8b79e; font: 400 .76rem/1.4 system-ui, sans-serif; }
+
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: radial-gradient(ellipse, #11100f99, #11100f40 70%);
+  animation: introduction 3s ease both;
+}
+#intro[hidden] { display: none; }
+#intro h1 { text-shadow: 0 2px 24px #000; }
+.previewing footer { visibility: hidden; }
+@keyframes introduction {
+  0% { opacity: 0; }
+  12%, 80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #intro { animation: none; }
+}

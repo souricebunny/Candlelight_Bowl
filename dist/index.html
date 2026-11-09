@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11100f">
+<meta name="description" content="An interactive candlelit brass bowl with floating flowers on charcoal stone.">
+<title>Candlelight Bowl</title>
+<link rel="stylesheet" href="./style.css?v=gallery-intro-final">
+</head>
+<body>
+<div id="intro" hidden>
+  <div><p>An interactive still life</p><h1>Candlelight Bowl</h1></div>
+</div>
+<main aria-label="Candlelight Bowl">
+  <div id="scene" role="img" aria-label="An overhead brass bowl with seven floating candles and flowers on charcoal stone">
+    <img id="plate" alt="" width="1536" height="1536" fetchpriority="high"
+      src="./plate-dark-1536.jpg" srcset="./plate-dark-1536.jpg 1536w, ./plate-dark-4096.jpg 4096w"
+      sizes="min(calc(100vw - 2rem), max(16rem, calc(100svh - 7rem)), 120rem)">
+  </div>
+  <footer><p class="water-hint">Glide gently across the water</p><button id="motion" type="button" disabled>Pause motion</button></footer>
+</main>
+<script type="module" src="./pond.js?v=gallery-intro-final"></script>
+</body>
+</html>
